@@ -1,0 +1,26 @@
+<!doctype html>
+<html ng-app="waterfall">
+  <head>
+    <meta charset="utf-8">
+    <title>Waterfall</title>
+  </head>
+  <body ng-controller="WaterfallController">
+
+    <div id="waterfall">
+      <div ng-repeat="message in messages track by $index">{{ message }}</div>
+    </div>
+
+    <form>
+        <input type="text" ng-model="newMessage" size="50" maxlength="255" />
+        <button ng-click="toss()">toss</button>
+    </form>
+
+    <!-- 
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0/angular.min.js"></script>
+     -->
+    <script src="vendor/angular.min.js"></script>
+    <script src='https://cdn.firebase.com/js/client/2.0.4/firebase.js'></script>
+    <script src="js/waterfall.js"></script>
+
+  </body>
+</html>
