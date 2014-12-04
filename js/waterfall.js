@@ -6,7 +6,20 @@ waterfall.controller('WaterfallController', ['$scope', '$firebase',
     $scope.messages = fb.$asArray()
 
     $scope.toss = function () {
-      $scope.messages.$add($scope.newMessage)
+      var rgb = []
+        , i
+
+      // Generate random RGB
+      for (i = 0; i < 3; i++) {
+        rgb.push(Math.round(Math.random()*255))
+      }
+
+      $scope.messages.$add({
+          text: $scope.newMessage
+        , rgb: rgb
+        , fontSize: 10 + Math.round(Math.random()*40)
+        , createdAt: Date.now()
+      })
       $scope.newMessage = ''
     }
   }

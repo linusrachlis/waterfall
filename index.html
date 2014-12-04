@@ -7,7 +7,10 @@
   <body ng-controller="WaterfallController">
 
     <div id="waterfall">
-      <div ng-repeat="message in messages">{{ message.$value }}</div>
+      <div ng-repeat="message in messages" style="
+        color: rgb({{ message.rgb.join(',') }});
+        font-size: {{ message.fontSize }}px;"
+      >{{ message.text }}</div>
     </div>
 
     <form>
