@@ -8,9 +8,12 @@
 
     <div id="waterfall">
       <div ng-repeat="message in messages" style="
-        color: rgb({{ message.rgb.join(',') }});
-        font-size: {{ message.fontSize }}px;"
-      >{{ message.text }}</div>
+        position:   relative;
+        color:      rgb({{ message.rgb.join(',') }});
+        font-size:  {{ message | getFontSize }}px;
+        left:       {{ message | getPercentProgress:now }}%;
+        opacity:    {{ message | getOpacity:now }};
+      ">{{ message.text }}</div>
     </div>
 
     <form>
