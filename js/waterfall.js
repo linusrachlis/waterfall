@@ -16,8 +16,11 @@ angular.module('waterfall', ['firebase'])
 })
 .controller('WaterfallController', ['$scope', '$firebase',
   function($scope, $firebase) {
-    var fb = $firebase(new Firebase('https://blinding-inferno-9332.firebaseio.com/'))
-    $scope.messages = fb.$asArray()
+    var fb = new Firebase('https://blinding-inferno-9332.firebaseio.com/waterfall')
+          .orderByChild('createdAt')
+          .limitToLast(10)
+      , af = $firebase(fb)
+    $scope.messages = af.$asArray()
 
     $scope.toss = function () {
       var rgb = []

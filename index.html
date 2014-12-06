@@ -7,7 +7,7 @@
   <body ng-controller="WaterfallController">
 
     <div id="waterfall">
-      <div ng-repeat="message in messages" style="
+      <div ng-repeat="message in messages.slice().reverse()" style="
         position:   relative;
         color:      rgb({{ message.rgb.join(',') }});
         font-size:  {{ message | getFontSize }}px;
